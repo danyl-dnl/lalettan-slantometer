@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shoulder Slant Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-[#0a0f1a] text-white flex flex-col items-center justify-start min-h-screen p-4">
+
+  <!-- Message Box -->
+  <div id="messageBox" class="hidden w-full max-w-6xl mb-4 text-center text-sm px-4 py-3 rounded bg-blue-100 text-blue-900"></div>
+
+  <!-- Main Container -->
+  <div class="container bg-white text-gray-900 rounded-xl max-w-6xl w-full p-6 shadow-lg space-y-8">
+
+    <h1 class="text-3xl font-bold text-center">Lalettan Slant-O-Meter</h1>
+
+    <!-- Slideshow -->
+    <div class="relative carousel-wrapper w-full h-[500px]">
+      <div class="carousel h-full" id="carousel">
+        <img src="1.jpeg" alt="Slide 1" />
+        <img src="2.jpeg" alt="Slide 2" />
+        <img src="3.jpeg" alt="Slide 3" />
+        <img src="4.jpeg" alt="Slide 4" />
+        <img src="5.jpeg" alt="Slide 5" />
+        <img src="6.jpeg" alt="Slide 6" />
+        <img src="7.jpeg" alt="Slide 7" />
+        <img src="8.jpeg" alt="Slide 8" />
+        <img src="9.jpeg" alt="Slide 9" />
+        <img src="10.jpeg" alt="Slide 10" />
+        <img src="11.jpeg" alt="Slide 11" />
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button id="prevBtn" class="carousel-button absolute top-1/2 left-4 -translate-y-1/2 p-3 rounded-full text-2xl shadow-md">&#8592;</button>
+      <button id="nextBtn" class="carousel-button absolute top-1/2 right-4 -translate-y-1/2 p-3 rounded-full text-2xl shadow-md">&#8594;</button>
+    </div>
+
+    <!-- Upload & Reset Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <label class="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+        Upload Image
+        <input type="file" id="imageUpload" accept="image/*" class="hidden" />
+      </label>
+      <button id="resetButton" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition cursor-not-allowed" disabled>
+        Reset
+      </button>
+    </div>
+
+    <!-- Canvas -->
+    <div class="flex justify-center">
+      <canvas id="imageCanvas" class="w-full max-w-full rounded-lg shadow-inner"></canvas>
+    </div>
+
+    <!-- Instructions -->
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Instructions:</h2>
+      <ol class="list-decimal list-inside space-y-1">
+        <li>Click "Upload Image" to select a photo of a person.</li>
+        <li>Click <strong>two points</strong> along the person's shoulder.</li>
+        <li>The first click defines the start, and the second defines the end.</li>
+        <li>The calculated angle and trigonometric values will appear below.</li>
+      </ol>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="hidden mt-6">
+      <h2 class="text-xl font-semibold mb-2">Calculation Results:</h2>
+      <p><strong>Angle of Slant:</strong> <span id="angleResult"></span> degrees</p>
+      <p><strong>Sine (sin):</strong> <span id="sinResult"></span></p>
+      <p><strong>Cosine (cos):</strong> <span id="cosResult"></span></p>
+      <p><strong>Tangent (tan):</strong> <span id="tanResult"></span></p>
+      <p class="mt-4 text-sm text-gray-600">
+        <strong>Interpretation:</strong> Positive = shoulder drops left to right. Negative = rises. Near 0° = level shoulder.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
